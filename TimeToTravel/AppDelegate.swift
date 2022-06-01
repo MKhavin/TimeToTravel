@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  TimeToTravel
-//
-//  Created by Michael Khavin on 01.06.2022.
-//
-
 import UIKit
 
 @main
