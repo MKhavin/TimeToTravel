@@ -10,9 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: mainScene)
         
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .link
-        
+        let viewController = Builder().assemblyMainModule()
         let navController = UINavigationController(rootViewController: viewController)
         
         window?.rootViewController = navController
