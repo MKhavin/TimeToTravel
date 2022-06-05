@@ -1,7 +1,12 @@
 import UIKit
 
+protocol TicketsCellDelegate: AnyObject {
+    func setLikeState(of ticket: Int)
+}
+
 // MARK: Cell properties
 class TicketsCollectionViewCell: UICollectionViewCell {
+    //MARK: UI Propereties
     lazy var route: UILabel = {
         let view = UILabel()
         view.toAutoLayout()
@@ -44,6 +49,11 @@ class TicketsCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    //MARK: Stored properties
+    var ticket: Int!
+    weak var delegate: TicketsCellDelegate?
+    private var isLiked: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -55,7 +65,7 @@ class TicketsCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 }
 
@@ -102,14 +112,26 @@ extension TicketsCollectionViewCell {
     
     func setCellData(by ticket: Ticket) {
         route.text = "\(ticket.startCityCode.uppercased()) - \(ticket.endCityCode.uppercased())"
-        startDate.text = ticket.convertedStartDate?.formatted(date: .abbreviated, time: .shortened)
-        endDate.text = ticket.convertedEndDate?.formatted(date: .abbreviated, time: .shortened)
+        startDate.text = ticket.startDate.formatted(date: .abbreviated, time: .shortened)
+        endDate.text = ticket.endDate.formatted(date: .abbreviated, time: .shortened)
+        isLiked = ticket.isLiked
+        setLikeButtonState()
+    }
+    
+    func setLikeButtonState() {
+        if isLiked {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 }
 
 // MARK: Actions
 extension TicketsCollectionViewCell {
     @objc private func likeButtonTapped(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        isLiked = !isLiked
+        setLikeButtonState()
+        delegate?.setLikeState(of: ticket)
     }
 }

@@ -1,6 +1,10 @@
 import UIKit
 
-protocol MainView: AnyObject {
+protocol ShowView {
+    func show(alert: UIAlertController)
+}
+
+protocol MainView: AnyObject, ShowView {
     func reloadTicketsCollection()
 }
 
@@ -70,7 +74,7 @@ extension MainViewController {
 // MARK: Collection View DataSource
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.tickets.count
+        presenter.getTicketsCollectionCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -78,7 +82,10 @@ extension MainViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setCellData(by: presenter.tickets[indexPath.item])
+        cell.setCellData(by: presenter.getTicket(by: indexPath.item))
+        cell.ticket = indexPath.item
+        cell.delegate = self
+        
         return cell
     }
 }
@@ -97,6 +104,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: MainView Delegate
 extension MainViewController: MainView {
+    func show(alert: UIAlertController) {
+        reloadTicketsCollection()
+        present(alert, animated: true)
+    }
+    
     func reloadTicketsCollection() {
         ticketsCollectionView.reloadData()
         let animation: () -> Void = {
@@ -106,5 +118,12 @@ extension MainViewController: MainView {
         self.loadingIndicator.isHidden = true
         self.ticketsCollectionView.isHidden = false
         UIView.animate(withDuration: 0.5, animations: animation, completion: nil)
+    }
+}
+
+//MARK: TicketCell delegate
+extension MainViewController: TicketsCellDelegate {
+    func setLikeState(of ticket: Int) {
+        presenter.setLikeState(of: ticket)
     }
 }

@@ -9,7 +9,8 @@ struct Builder: ModuleAssembly {
     func assemblyMainModule() -> UIViewController {
         let view = MainViewController()
         let networkService = NetworkService()
-        let presenter = MainPresenter(view: view, networkService: networkService)
+        let model = TicketsManager()
+        let presenter = MainPresenter(view: view, networkService: networkService, model: model)
         view.presenter = presenter
         networkService.delegate = presenter
         

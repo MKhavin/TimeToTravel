@@ -1,7 +1,7 @@
 import Foundation
 
 class NetworkService {
-    var urlComponents: URLComponents
+    private var urlComponents: URLComponents
     weak var delegate: DataTaskResponder?
 
     init() {
@@ -18,7 +18,7 @@ class NetworkService {
         
         let task = URLSession.shared.dataTask(with: url) { [unowned self] data, response, error in
             guard let httpResponse = response as? HTTPURLResponse, error == nil && httpResponse.statusCode == 200 else {
-                //ToDo: UIAlert with error
+                delegate?.showErrorMessage("Возникла ошибка при попытке получения данных. Проверьте интернет соединение.")
                 return
             }
             
@@ -27,7 +27,7 @@ class NetworkService {
                     let encodeData = try JSONDecoder().decode(TicketsData.self, from: currentData)
                     self.delegate?.setTicketsData(by: encodeData.data)
                 } catch {
-                    //ToDo: UIAlert with error
+                    delegate?.showErrorMessage(error.localizedDescription)
                     return
                 }
             }
