@@ -131,7 +131,8 @@ extension TicketsCollectionViewCell {
     }
     
     func setCellData(by ticket: Ticket) {
-        route.text = "\(ticket.startCityCode.uppercased()) - \(ticket.endCityCode.uppercased())"
+//        route.text = "\(ticket.startCityCode.uppercased()) - \(ticket.endCityCode.uppercased())"
+        route.text = "\(ticket.startCity.uppercased()) - \(ticket.endCity.uppercased())"
         price.text = ticket.price.currencyFormatted()
         
         let dateFormat = "d MMMM yyyy HH:mm"
