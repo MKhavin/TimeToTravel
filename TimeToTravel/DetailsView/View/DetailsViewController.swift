@@ -1,49 +1,48 @@
 import UIKit
 
-protocol DetailsView: UITableViewDelegate, UITableViewDataSource {
+protocol DetailsView: UITableViewDataSource {
     func setLikeState()
 }
 
-class DetailsViewController: UIViewController, DetailsView {
-
+class DetailsViewController: UIViewController {
+    // MARK: UI elements
     lazy var detailsView: DetailView = {
         let view = DetailView()
         view.toAutoLayout()
         return view
     }()
     
+    // MARK: Stored properties
     var presenter: DetailsPresenter!
     
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .link
         view.addSubview(detailsView)
-        setSubViewLayout()
         detailsView.routeLabel.text = presenter.getRouteTitle().uppercased()
-        detailsView.tableView.delegate = self
         detailsView.tableView.dataSource = self
+        setSubViewsLayout()
     }
-    
-
 }
 
-//MARK: Sub functions
+// MARK: Sub functions
 extension DetailsViewController {
-    private func setSubViewLayout() {
+    private func setSubViewsLayout() {
         let safeArea = view.safeAreaLayoutGuide
-        let inset: CGFloat = 20
+        let offset: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            detailsView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: inset),
-            detailsView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -inset),
-            detailsView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: inset),
-            detailsView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -inset)
+            detailsView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: offset),
+            detailsView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -offset),
+            detailsView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: offset),
+            detailsView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -offset)
         ])
     }
     
     private func setButtonCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailView.CellIdentifiers.likeButton.rawValue,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailView.CellIdentifier.likeButton.rawValue,
                                                        for: indexPath) as? ButtonTableViewCell else {
             return UITableViewCell()
         }
@@ -55,7 +54,7 @@ extension DetailsViewController {
     }
     
     private func setDataCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailView.CellIdentifiers.ticketData.rawValue,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailView.CellIdentifier.ticketData.rawValue,
                                                        for: indexPath) as? DataTableViewCell else {
             return UITableViewCell()
         }
@@ -65,23 +64,24 @@ extension DetailsViewController {
         
         return cell
     }
-    
+}
+
+// MARK: Details view delegate
+extension DetailsViewController: DetailsView {
     func setLikeState() {
         presenter.setLikeState()
     }
 }
 
-
-
 //MARK: TableView DataSource
 extension DetailsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        DetailView.CellIdentifiers.allCases.count
+        DetailView.CellIdentifier.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 4
+        case 0: return 5
         case 1: return 1
         default: return 0
         }
@@ -96,9 +96,4 @@ extension DetailsViewController: UITableViewDataSource {
         default: return UITableViewCell()
         }
     }
-}
-
-//MARK: TableView Delegate
-extension DetailsViewController: UITableViewDelegate {
-    
 }

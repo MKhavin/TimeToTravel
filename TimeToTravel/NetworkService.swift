@@ -17,7 +17,8 @@ class NetworkService {
         }
         
         let task = URLSession.shared.dataTask(with: url) { [unowned self] data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse, error == nil && httpResponse.statusCode == 200 else {
+            guard let httpResponse = response as? HTTPURLResponse,
+                    error == nil && httpResponse.statusCode == 200 else {
                 delegate?.showErrorMessage("Возникла ошибка при попытке получения данных. Проверьте интернет соединение.")
                 return
             }
@@ -25,7 +26,7 @@ class NetworkService {
             if let currentData = data {
                 do {
                     let encodeData = try JSONDecoder().decode(TicketsData.self, from: currentData)
-                    self.delegate?.setTicketsData(by: encodeData.data)
+                    delegate?.setTicketsData(by: encodeData.data)
                 } catch {
                     delegate?.showErrorMessage(error.localizedDescription)
                     return

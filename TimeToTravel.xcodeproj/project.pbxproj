@@ -11,6 +11,7 @@
 		5116FD0F28481096001DC0F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD0E28481096001DC0F7 /* MainViewController.swift */; };
 		5116FD12284812B5001DC0F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD11284812B5001DC0F7 /* UIViewExtension.swift */; };
 		5116FD14284817F5001DC0F7 /* TicketsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD13284817F5001DC0F7 /* TicketsCollectionViewCell.swift */; };
+		5139F340284E9BE900CA5CE3 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139F33F284E9BE900CA5CE3 /* DoubleExtension.swift */; };
 		5163F1AC284D4BF700617D4A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5163F1AB284D4BF700617D4A /* DateExtension.swift */; };
 		51BC21E4284950040045D707 /* TicketsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC21E3284950040045D707 /* TicketsData.swift */; };
 		51BC21E6284951560045D707 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC21E5284951560045D707 /* NetworkService.swift */; };
@@ -36,6 +37,7 @@
 		5116FD0E28481096001DC0F7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5116FD11284812B5001DC0F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		5116FD13284817F5001DC0F7 /* TicketsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5139F33F284E9BE900CA5CE3 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		5163F1AB284D4BF700617D4A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		51BC21E3284950040045D707 /* TicketsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsData.swift; sourceTree = "<group>"; };
 		51BC21E5284951560045D707 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -111,16 +113,9 @@
 				5116FD11284812B5001DC0F7 /* UIViewExtension.swift */,
 				5110BD08284AAB3900E38940 /* UIStackViewExtension.swift */,
 				5163F1AB284D4BF700617D4A /* DateExtension.swift */,
+				5139F33F284E9BE900CA5CE3 /* DoubleExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		51BC21E228494FDD0045D707 /* NetworkService */ = {
-			isa = PBXGroup;
-			children = (
-				51BC21E5284951560045D707 /* NetworkService.swift */,
-			);
-			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		51D7E266284BFB7C003E162F /* AlertControllers */ = {
@@ -188,7 +183,9 @@
 			children = (
 				51D7E266284BFB7C003E162F /* AlertControllers */,
 				5116FD0B28481065001DC0F7 /* Models */,
-				51BC21E228494FDD0045D707 /* NetworkService */,
+				51BC21E5284951560045D707 /* NetworkService.swift */,
+				51BC21E9284962960045D707 /* ModuleAssembly.swift */,
+				51D9FB5B284CB53500B397B3 /* Cordinator.swift */,
 				5116FD1028481281001DC0F7 /* Extensions */,
 				5116FD0A28481055001DC0F7 /* MainView */,
 				51D9FB52284CA1C600B397B3 /* DetailsView */,
@@ -197,8 +194,6 @@
 				51DB3FD42847FFDD00B8E4D6 /* Assets.xcassets */,
 				51DB3FD62847FFDD00B8E4D6 /* LaunchScreen.storyboard */,
 				51DB3FD92847FFDD00B8E4D6 /* Info.plist */,
-				51BC21E9284962960045D707 /* ModuleAssembly.swift */,
-				51D9FB5B284CB53500B397B3 /* Cordinator.swift */,
 			);
 			path = TimeToTravel;
 			sourceTree = "<group>";
@@ -285,6 +280,7 @@
 				51D9FB51284C893300B397B3 /* Ticket.swift in Sources */,
 				51D9FB5C284CB53500B397B3 /* Cordinator.swift in Sources */,
 				51D9FB5F284CC05500B397B3 /* ButtonTableViewCell.swift in Sources */,
+				5139F340284E9BE900CA5CE3 /* DoubleExtension.swift in Sources */,
 				51DB3FCC2847FFDB00B8E4D6 /* AppDelegate.swift in Sources */,
 				5116FD12284812B5001DC0F7 /* UIViewExtension.swift in Sources */,
 				51BC21EA284962960045D707 /* ModuleAssembly.swift in Sources */,

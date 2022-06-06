@@ -1,5 +1,3 @@
-import Foundation
-
 protocol TicketsManagerSocket {
     func getTicket(by item: Int) -> Ticket
     func setLikeState(of ticket: Int)

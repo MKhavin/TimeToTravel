@@ -1,19 +1,25 @@
 import UIKit
 
 class DetailView: UIView {
-    enum CellIdentifiers: String, CaseIterable {
+    enum CellIdentifier: String, CaseIterable {
         case ticketData = "TicketData"
         case likeButton = "LikeButton"
     }
     
-    private let cornerRadius: CGFloat = 20
+    private enum Constant {
+        static let cornerRadius: CGFloat = 20
+        static let titleSize: CGFloat = 20
+        static let titleHeight: CGFloat = 40
+        static let tableOffset: CGFloat = 5
+    }
     
+    // MARK: UI elements
     lazy var routeLabel: UILabel = {
         let view = UILabel()
        
         view.toAutoLayout()
         view.textAlignment = .center
-        view.font = .systemFont(ofSize: 20, weight: .bold)
+        view.font = .systemFont(ofSize: Constant.titleSize, weight: .bold)
         view.textColor = .black
         
         return view
@@ -24,9 +30,9 @@ class DetailView: UIView {
         
         view.separatorStyle = .none
         view.toAutoLayout()
-        view.register(DataTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.ticketData.rawValue)
-        view.register(ButtonTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.likeButton.rawValue)
-        view.layer.cornerRadius = self.cornerRadius
+        view.register(DataTableViewCell.self, forCellReuseIdentifier: CellIdentifier.ticketData.rawValue)
+        view.register(ButtonTableViewCell.self, forCellReuseIdentifier: CellIdentifier.likeButton.rawValue)
+        view.layer.cornerRadius = Constant.cornerRadius
         view.allowsSelection = false
         view.backgroundColor = .white
         
@@ -42,11 +48,12 @@ class DetailView: UIView {
         
         return view
     }()
-    
+   
+    //MARK: Life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.cornerRadius = cornerRadius
+        layer.cornerRadius = Constant.cornerRadius
         backgroundColor = .white
         addSubViews([
             routeLabel,
@@ -67,11 +74,11 @@ extension DetailView {
             routeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             routeLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             routeLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            routeLabel.heightAnchor.constraint(equalToConstant: 40)
+            routeLabel.heightAnchor.constraint(equalToConstant: Constant.titleHeight)
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: routeLabel.bottomAnchor, constant: 5),
+            tableView.topAnchor.constraint(equalTo: routeLabel.bottomAnchor, constant: Constant.tableOffset),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

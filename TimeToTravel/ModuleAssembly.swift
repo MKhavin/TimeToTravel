@@ -2,7 +2,9 @@ import UIKit
 
 protocol ModuleAssembly {
     func assemblyMainModule(cordinator: AppCordinator) -> UIViewController
-    func assemblyDetailsModule(with model: TicketsManager?, selectedTicket: Int, cordinator: AppCordinator) -> UIViewController
+    func assemblyDetailsModule(with model: TicketsManager?,
+                               selectedTicket: Int,
+                               cordinator: AppCordinator) -> UIViewController
 }
 
 struct Builder: ModuleAssembly {
@@ -20,7 +22,9 @@ struct Builder: ModuleAssembly {
         return view
     }
     
-    func assemblyDetailsModule(with model: TicketsManager? = nil, selectedTicket: Int, cordinator: AppCordinator) -> UIViewController {
+    func assemblyDetailsModule(with model: TicketsManager? = nil,
+                               selectedTicket: Int,
+                               cordinator: AppCordinator) -> UIViewController {
         let view = DetailsViewController()
         let presenter = DetailsViewPresenter(view: view,
                                              model: model ?? TicketsManager(),

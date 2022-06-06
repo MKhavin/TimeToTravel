@@ -1,7 +1,6 @@
 import UIKit
 
 class ErrorAlertController: UIAlertController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -10,5 +9,4 @@ class ErrorAlertController: UIAlertController {
         }
         addAction(action)
     }
-
 }

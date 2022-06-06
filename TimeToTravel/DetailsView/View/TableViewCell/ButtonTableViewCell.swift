@@ -1,10 +1,11 @@
 import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
-
+    // MARK: Stored properties
     weak var delegate: DetailsView?
     private var isLiked: Bool = false
     
+    // MARK: UI elements
     lazy var likeButton: UIButton = {
         let view = UIButton()
         
@@ -17,29 +18,18 @@ class ButtonTableViewCell: UITableViewCell {
         return view
     }()
     
+    // MARK: Life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .white
         contentView.addSubview(likeButton)
-        
-        NSLayoutConstraint.activate([
-            likeButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            likeButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
-            likeButton.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            likeButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
-        ])
+        setSubViewsLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    func setCurrentLike(status: Bool) {
-        isLiked = status
-        setLikeButtonState()
-    }
-    
 }
 
 // MARK: Sub functions
@@ -50,6 +40,20 @@ extension ButtonTableViewCell {
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+    }
+    
+    private func setSubViewsLayout() {
+        NSLayoutConstraint.activate([
+            likeButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            likeButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor),
+            likeButton.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            likeButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+        ])
+    }
+    
+    func setCurrentLike(status: Bool) {
+        isLiked = status
+        setLikeButtonState()
     }
 }
 

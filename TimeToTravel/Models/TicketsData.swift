@@ -1,16 +1,14 @@
-import Foundation
-
 struct DecodedTicket: Decodable {
-    var startCity: String
-    var startCityCode: String
-    var endCity: String
-    var endCityCode: String
-    var startDate: String
-    var endDate: String
-    var price: Int
-    var searchToken: String
+    let startCity: String
+    let startCityCode: String
+    let endCity: String
+    let endCityCode: String
+    let startDate: String
+    let endDate: String
+    let price: Double
+    let searchToken: String
 }
 
 struct TicketsData: Decodable {
-    var data: [DecodedTicket]
+    let data: [DecodedTicket]
 }

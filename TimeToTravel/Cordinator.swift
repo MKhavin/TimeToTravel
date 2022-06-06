@@ -1,17 +1,20 @@
-import Foundation
 import UIKit
 
 protocol AppCordinator {
     func initialRootController()
-    func pushDetailsController(model: TicketsManager, selectedTicket: Int, parent: UIAdaptivePresentationControllerDelegate)
+    func pushDetailsController(model: TicketsManager,
+                               selectedTicket: Int,
+                               parent: UIAdaptivePresentationControllerDelegate)
     init(builder: ModuleAssembly, navigationController: UINavigationController)
 }
 
 class Cordinator: AppCordinator {
-    weak var navigationController: UINavigationController?
-    let builder: ModuleAssembly
+    private weak var navigationController: UINavigationController?
+    private let builder: ModuleAssembly
  
-    func pushDetailsController(model: TicketsManager, selectedTicket: Int, parent: UIAdaptivePresentationControllerDelegate) {
+    func pushDetailsController(model: TicketsManager,
+                               selectedTicket: Int,
+                               parent: UIAdaptivePresentationControllerDelegate) {
         let view = builder.assemblyDetailsModule(with: model, selectedTicket: selectedTicket, cordinator: self)
         view.presentationController?.delegate = parent
         navigationController?.present(view, animated: true)

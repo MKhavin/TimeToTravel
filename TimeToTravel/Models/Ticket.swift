@@ -18,7 +18,7 @@ struct Ticket {
     let endCityCode: String
     let startDate: Date
     let endDate: Date
-    let price: Int
+    let price: Double
     var isLiked: Bool = false
     
     subscript(property: Property) -> Any {

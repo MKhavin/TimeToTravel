@@ -12,6 +12,7 @@ protocol DataTaskResponder: AnyObject {
     func showErrorMessage(_ message: String)
 }
 
+// MARK: Main presenter
 class MainPresenter: MainViewPresenter {
     private weak var view: MainView?
     private let networkService: NetworkService
@@ -53,13 +54,14 @@ class MainPresenter: MainViewPresenter {
     }
 }
 
+// MARK: Data task responder
 extension MainPresenter: DataTaskResponder {    
     func setTicketsData(by data: [DecodedTicket]) {
         data.forEach { ticket in
             model.tickets.append(Ticket(by: ticket))
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self] in
                 self.view?.reloadTicketsCollection()
         }
     }

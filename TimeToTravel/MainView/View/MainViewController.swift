@@ -1,36 +1,42 @@
 import UIKit
 
-protocol ShowView {
+protocol ViewShowing {
     func show(alert: UIAlertController)
 }
 
-protocol MainView: ShowView, UIAdaptivePresentationControllerDelegate {
+protocol MainView: ViewShowing, UIAdaptivePresentationControllerDelegate {
     func reloadTicketsCollection()
 }
 
 class MainViewController: UIViewController {
     var presenter: MainViewPresenter!
     
+    // MARK: UI elements
     private lazy var ticketsCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        
         view.dataSource = self
         view.delegate = self
         view.register(TicketsCollectionViewCell.self, forCellWithReuseIdentifier: "Tickets")
         view.backgroundColor = .link
-        view.toAutoLayout()
         view.isHidden = true
         view.alpha = 0
+        view.toAutoLayout()
+        
         return view
     }()
     
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
+        
         view.toAutoLayout()
         view.color = .white
         view.startAnimating()
+        
         return view
     }()
     
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,10 +67,11 @@ extension MainViewController {
     
     private func setSubViewsLayout() {
         let safeArea = view.safeAreaLayoutGuide
+        let topBottomOffset: CGFloat = 10
         
         NSLayoutConstraint.activate([
-            ticketsCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
-            ticketsCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -10),
+            ticketsCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: topBottomOffset),
+            ticketsCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -topBottomOffset),
             ticketsCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             ticketsCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
@@ -82,7 +89,8 @@ extension MainViewController: UICollectionViewDataSource {
         presenter.getTicketsCollectionCount()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Tickets", for: indexPath) as? TicketsCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -101,9 +109,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         presenter.pushDetailsController(selectedTicket: indexPath.item)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = collectionView.bounds
-        return CGSize(width: screenSize.width - 20, height: screenSize.height / 4)
+        return CGSize(width: screenSize.width - 20, height: screenSize.height / 3)
     }
 }
 

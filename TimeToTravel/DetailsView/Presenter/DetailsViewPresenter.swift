@@ -56,6 +56,8 @@ class DetailsViewPresenter: DetailsPresenter {
         case 3:
             let dateFormat = "EEEE d MMMM yyyy HH:mm"
             return "Дата прибытия: \(ticket.endDate.formatted(dateFormat: dateFormat))"
+        case 4:
+            return "Цена: \(ticket.price.currencyFormatted())"
         default:
             return ""
         }
