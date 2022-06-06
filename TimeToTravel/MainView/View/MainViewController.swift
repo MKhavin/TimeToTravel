@@ -4,7 +4,7 @@ protocol ShowView {
     func show(alert: UIAlertController)
 }
 
-protocol MainView: AnyObject, ShowView {
+protocol MainView: ShowView, UIAdaptivePresentationControllerDelegate {
     func reloadTicketsCollection()
 }
 
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .large)
         view.toAutoLayout()
-        view.tintColor = .white
+        view.color = .white
         view.startAnimating()
         return view
     }()
@@ -40,6 +40,11 @@ class MainViewController: UIViewController {
         setNavigationBar()
         setSubViewsLayout()
         presenter.getTicketsCollection()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ticketsCollectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
@@ -93,11 +98,11 @@ extension MainViewController: UICollectionViewDataSource {
 //MARK: Collection View Delegate
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(UIViewController(), animated: true)
+        presenter.pushDetailsController(selectedTicket: indexPath.item)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize = UIScreen.main.bounds
+        let screenSize = collectionView.bounds
         return CGSize(width: screenSize.width - 20, height: screenSize.height / 4)
     }
 }
@@ -122,8 +127,15 @@ extension MainViewController: MainView {
 }
 
 //MARK: TicketCell delegate
-extension MainViewController: TicketsCellDelegate {
+extension MainViewController: CellButtonDelegate {
     func setLikeState(of ticket: Int) {
         presenter.setLikeState(of: ticket)
+    }
+}
+
+//MARK: AdaptivePresentationController delegate
+extension MainViewController {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        ticketsCollectionView.reloadData()
     }
 }

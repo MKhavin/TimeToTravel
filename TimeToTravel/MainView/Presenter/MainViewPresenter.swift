@@ -1,11 +1,10 @@
 import Foundation
 
-protocol MainViewPresenter {
-    init(view: MainView, networkService: NetworkService, model: TicketsManager)
+protocol MainViewPresenter: TicketsManagerSocket {
+    init(view: MainView, networkService: NetworkService, model: TicketsManager, cordinator: AppCordinator)
     func getTicketsCollection()
     func getTicketsCollectionCount() -> Int
-    func getTicket(by item: Int) -> Ticket
-    func setLikeState(of ticket: Int)
+    func pushDetailsController(selectedTicket: Int)
 }
 
 protocol DataTaskResponder: AnyObject {
@@ -17,11 +16,16 @@ class MainPresenter: MainViewPresenter {
     private weak var view: MainView?
     private let networkService: NetworkService
     private let model: TicketsManager
+    private let cordinator: AppCordinator
     
-    required init(view: MainView, networkService: NetworkService, model: TicketsManager) {
+    required init(view: MainView,
+                  networkService: NetworkService,
+                  model: TicketsManager,
+                  cordinator: AppCordinator) {
         self.view = view
         self.networkService = networkService
         self.model = model
+        self.cordinator = cordinator
     }
 
     func getTicketsCollection() {
@@ -38,6 +42,14 @@ class MainPresenter: MainViewPresenter {
     
     func getTicketsCollectionCount() -> Int {
         model.tickets.count
+    }
+    
+    func pushDetailsController(selectedTicket: Int) {
+        guard let currentView = view else {
+            return
+        }
+        
+        cordinator.pushDetailsController(model: model, selectedTicket: selectedTicket, parent: currentView)
     }
 }
 

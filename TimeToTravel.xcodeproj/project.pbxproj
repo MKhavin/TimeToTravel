@@ -11,6 +11,7 @@
 		5116FD0F28481096001DC0F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD0E28481096001DC0F7 /* MainViewController.swift */; };
 		5116FD12284812B5001DC0F7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD11284812B5001DC0F7 /* UIViewExtension.swift */; };
 		5116FD14284817F5001DC0F7 /* TicketsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116FD13284817F5001DC0F7 /* TicketsCollectionViewCell.swift */; };
+		5163F1AC284D4BF700617D4A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5163F1AB284D4BF700617D4A /* DateExtension.swift */; };
 		51BC21E4284950040045D707 /* TicketsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC21E3284950040045D707 /* TicketsData.swift */; };
 		51BC21E6284951560045D707 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC21E5284951560045D707 /* NetworkService.swift */; };
 		51BC21E82849590B0045D707 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC21E72849590B0045D707 /* MainViewPresenter.swift */; };
@@ -18,6 +19,12 @@
 		51D7E268284BFBAF003E162F /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7E267284BFBAF003E162F /* ErrorAlertController.swift */; };
 		51D9FB4F284C892800B397B3 /* TicketsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB4E284C892800B397B3 /* TicketsManager.swift */; };
 		51D9FB51284C893300B397B3 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB50284C893300B397B3 /* Ticket.swift */; };
+		51D9FB56284CA21100B397B3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB55284CA21100B397B3 /* DetailsViewController.swift */; };
+		51D9FB58284CA4F000B397B3 /* DetailsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB57284CA4F000B397B3 /* DetailsViewPresenter.swift */; };
+		51D9FB5A284CAAB500B397B3 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB59284CAAB500B397B3 /* DetailsView.swift */; };
+		51D9FB5C284CB53500B397B3 /* Cordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB5B284CB53500B397B3 /* Cordinator.swift */; };
+		51D9FB5F284CC05500B397B3 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB5E284CC05500B397B3 /* ButtonTableViewCell.swift */; };
+		51D9FB61284CCD0700B397B3 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D9FB60284CCD0700B397B3 /* DataTableViewCell.swift */; };
 		51DB3FCC2847FFDB00B8E4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB3FCB2847FFDB00B8E4D6 /* AppDelegate.swift */; };
 		51DB3FCE2847FFDB00B8E4D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB3FCD2847FFDB00B8E4D6 /* SceneDelegate.swift */; };
 		51DB3FD52847FFDD00B8E4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DB3FD42847FFDD00B8E4D6 /* Assets.xcassets */; };
@@ -29,6 +36,7 @@
 		5116FD0E28481096001DC0F7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5116FD11284812B5001DC0F7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		5116FD13284817F5001DC0F7 /* TicketsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5163F1AB284D4BF700617D4A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		51BC21E3284950040045D707 /* TicketsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsData.swift; sourceTree = "<group>"; };
 		51BC21E5284951560045D707 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		51BC21E72849590B0045D707 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
@@ -36,6 +44,12 @@
 		51D7E267284BFBAF003E162F /* ErrorAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
 		51D9FB4E284C892800B397B3 /* TicketsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsManager.swift; sourceTree = "<group>"; };
 		51D9FB50284C893300B397B3 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		51D9FB55284CA21100B397B3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		51D9FB57284CA4F000B397B3 /* DetailsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewPresenter.swift; sourceTree = "<group>"; };
+		51D9FB59284CAAB500B397B3 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		51D9FB5B284CB53500B397B3 /* Cordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cordinator.swift; sourceTree = "<group>"; };
+		51D9FB5E284CC05500B397B3 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		51D9FB60284CCD0700B397B3 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		51DB3FC82847FFDB00B8E4D6 /* TimeToTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeToTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51DB3FCB2847FFDB00B8E4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51DB3FCD2847FFDB00B8E4D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +110,7 @@
 			children = (
 				5116FD11284812B5001DC0F7 /* UIViewExtension.swift */,
 				5110BD08284AAB3900E38940 /* UIStackViewExtension.swift */,
+				5163F1AB284D4BF700617D4A /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -114,6 +129,42 @@
 				51D7E267284BFBAF003E162F /* ErrorAlertController.swift */,
 			);
 			path = AlertControllers;
+			sourceTree = "<group>";
+		};
+		51D9FB52284CA1C600B397B3 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				51D9FB53284CA1D700B397B3 /* View */,
+				51D9FB54284CA1DC00B397B3 /* Presenter */,
+			);
+			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		51D9FB53284CA1D700B397B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51D9FB5D284CBF8200B397B3 /* TableViewCell */,
+				51D9FB55284CA21100B397B3 /* DetailsViewController.swift */,
+				51D9FB59284CAAB500B397B3 /* DetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51D9FB54284CA1DC00B397B3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				51D9FB57284CA4F000B397B3 /* DetailsViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		51D9FB5D284CBF8200B397B3 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				51D9FB5E284CC05500B397B3 /* ButtonTableViewCell.swift */,
+				51D9FB60284CCD0700B397B3 /* DataTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		51DB3FBF2847FFDB00B8E4D6 = {
@@ -140,12 +191,14 @@
 				51BC21E228494FDD0045D707 /* NetworkService */,
 				5116FD1028481281001DC0F7 /* Extensions */,
 				5116FD0A28481055001DC0F7 /* MainView */,
+				51D9FB52284CA1C600B397B3 /* DetailsView */,
 				51DB3FCB2847FFDB00B8E4D6 /* AppDelegate.swift */,
 				51DB3FCD2847FFDB00B8E4D6 /* SceneDelegate.swift */,
 				51DB3FD42847FFDD00B8E4D6 /* Assets.xcassets */,
 				51DB3FD62847FFDD00B8E4D6 /* LaunchScreen.storyboard */,
 				51DB3FD92847FFDD00B8E4D6 /* Info.plist */,
 				51BC21E9284962960045D707 /* ModuleAssembly.swift */,
+				51D9FB5B284CB53500B397B3 /* Cordinator.swift */,
 			);
 			path = TimeToTravel;
 			sourceTree = "<group>";
@@ -221,16 +274,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5116FD0F28481096001DC0F7 /* MainViewController.swift in Sources */,
+				5163F1AC284D4BF700617D4A /* DateExtension.swift in Sources */,
 				51D9FB4F284C892800B397B3 /* TicketsManager.swift in Sources */,
 				5110BD09284AAB3900E38940 /* UIStackViewExtension.swift in Sources */,
 				51BC21E4284950040045D707 /* TicketsData.swift in Sources */,
 				51BC21E82849590B0045D707 /* MainViewPresenter.swift in Sources */,
+				51D9FB58284CA4F000B397B3 /* DetailsViewPresenter.swift in Sources */,
+				51D9FB61284CCD0700B397B3 /* DataTableViewCell.swift in Sources */,
 				51D7E268284BFBAF003E162F /* ErrorAlertController.swift in Sources */,
 				51D9FB51284C893300B397B3 /* Ticket.swift in Sources */,
+				51D9FB5C284CB53500B397B3 /* Cordinator.swift in Sources */,
+				51D9FB5F284CC05500B397B3 /* ButtonTableViewCell.swift in Sources */,
 				51DB3FCC2847FFDB00B8E4D6 /* AppDelegate.swift in Sources */,
 				5116FD12284812B5001DC0F7 /* UIViewExtension.swift in Sources */,
 				51BC21EA284962960045D707 /* ModuleAssembly.swift in Sources */,
 				5116FD14284817F5001DC0F7 /* TicketsCollectionViewCell.swift in Sources */,
+				51D9FB56284CA21100B397B3 /* DetailsViewController.swift in Sources */,
+				51D9FB5A284CAAB500B397B3 /* DetailsView.swift in Sources */,
 				51DB3FCE2847FFDB00B8E4D6 /* SceneDelegate.swift in Sources */,
 				51BC21E6284951560045D707 /* NetworkService.swift in Sources */,
 			);
@@ -254,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -314,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -378,7 +440,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +468,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

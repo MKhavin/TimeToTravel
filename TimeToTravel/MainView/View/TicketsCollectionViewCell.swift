@@ -1,6 +1,6 @@
 import UIKit
 
-protocol TicketsCellDelegate: AnyObject {
+protocol CellButtonDelegate: AnyObject {
     func setLikeState(of ticket: Int)
 }
 
@@ -10,21 +10,21 @@ class TicketsCollectionViewCell: UICollectionViewCell {
     lazy var route: UILabel = {
         let view = UILabel()
         view.toAutoLayout()
-        view.tintColor = .black
+        view.textColor = .black
         return view
     }()
     
     lazy var startDate: UILabel = {
         let view = UILabel()
         view.toAutoLayout()
-        view.tintColor = .black
+        view.textColor = .black
         return view
     }()
     
     lazy var endDate: UILabel = {
         let view = UILabel()
         view.toAutoLayout()
-        view.tintColor = .black
+        view.textColor = .black
         return view
     }()
     
@@ -51,7 +51,7 @@ class TicketsCollectionViewCell: UICollectionViewCell {
     
     //MARK: Stored properties
     var ticket: Int!
-    weak var delegate: TicketsCellDelegate?
+    weak var delegate: CellButtonDelegate?
     private var isLiked: Bool = false
     
     override init(frame: CGRect) {
@@ -102,7 +102,7 @@ extension TicketsCollectionViewCell {
         
         let titleLabel = UILabel()
         titleLabel.text = title
-        titleLabel.tintColor = .black
+        titleLabel.textColor = .black
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubViews(subViews)
@@ -112,8 +112,11 @@ extension TicketsCollectionViewCell {
     
     func setCellData(by ticket: Ticket) {
         route.text = "\(ticket.startCityCode.uppercased()) - \(ticket.endCityCode.uppercased())"
-        startDate.text = ticket.startDate.formatted(date: .abbreviated, time: .shortened)
-        endDate.text = ticket.endDate.formatted(date: .abbreviated, time: .shortened)
+        
+        let dateFormat = "d MMMM yyyy HH:mm"
+        startDate.text = ticket.startDate.formatted(dateFormat: dateFormat)
+        endDate.text = ticket.endDate.formatted(dateFormat: dateFormat)
+        
         isLiked = ticket.isLiked
         setLikeButtonState()
     }

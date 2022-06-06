@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,31 +14,31 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to travel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwD-LB-Gri">
-                                <rect key="frame" x="0.0" y="732" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="816" width="414" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bvj-0g-yjD">
-                                <rect key="frame" x="67.666666666666686" y="246" width="240" height="320"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="jUD-9n-3Gj">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="KfH-T9-mog"/>
-                                    <constraint firstAttribute="height" constant="320" id="L5U-36-ah8"/>
+                                    <constraint firstAttribute="width" constant="250" id="HA2-4A-gy5"/>
+                                    <constraint firstAttribute="height" constant="250" id="QRt-5L-2oj"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
+                            <constraint firstItem="jUD-9n-3Gj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="10r-nV-19L"/>
+                            <constraint firstItem="jUD-9n-3Gj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1BN-o8-eVn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QwD-LB-Gri" secondAttribute="bottom" constant="10" id="DgJ-DX-eJe"/>
                             <constraint firstItem="QwD-LB-Gri" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="THb-qk-afE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QwD-LB-Gri" secondAttribute="trailing" id="hgu-qm-UGY"/>
-                            <constraint firstItem="bvj-0g-yjD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kux-0s-YfQ"/>
-                            <constraint firstItem="bvj-0g-yjD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pDv-5E-AQK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -47,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreenIcon" width="1024" height="1024"/>
+        <image name="LaunchScreen" width="1024" height="1024"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
